@@ -9,44 +9,37 @@ export const ContactForm = ({
     setEmail,
     handleSubmit,
 }) => {
-    const handleChange = (e) => {
-        if (e.target.id === "name") {
-            setName(e.target.value);
-        }
-        if (e.target.id === "phone") {
-            setPhone(e.target.value);
-        }
-        if (e.target.id === "email") {
-            setEmail(e.target.value);
-        }
-    };
     return (
         <>
-            <form onsubmit={handleSubmit}>
-                <label for="name">Name</label>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="name">Name</label>
                 <input
                     value={name}
                     id="name"
                     type="text"
-                    onChange={handleChange}
+                    onChange={(e) => {
+                        setName(e.target.value);
+                    }}
                 />
-                <label for="phone">Phone</label>
+                <label htmlFor="phone">Phone</label>
                 <input
                     value={phone}
                     id="phone"
                     type="tel"
-                    onChange={handleChange}
+                    onChange={(e) => {
+                        setPhone(e.target.value);
+                    }}
                 />
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
                     value={email}
                     id="email"
                     type="email"
-                    onChange={handleChange}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
                 />
-                <button id="submit" type="submit">
-                    Submit
-                </button>
+                <button type="submit">Submit</button>
             </form>
         </>
     );

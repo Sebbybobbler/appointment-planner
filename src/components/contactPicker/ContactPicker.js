@@ -1,6 +1,11 @@
 import React from "react";
 
-export const ContactPicker = () => {
+export const ContactPicker = ({
+  contacts,
+  handleChange,
+  value,
+  name
+}) => {
   return (
     <></>
   );
