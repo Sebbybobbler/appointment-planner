@@ -22,14 +22,14 @@ function App() {
   contacts and appointments
   */
     const addContact = (contactName, contactNumber, contactEmail) => {
-        const contactObj = {
-            name: contactName,
-            number: contactNumber,
-            email: contactEmail,
-        };
-        setContacts((prev) => {
-            return [...prev, contactObj];
-        });
+        setContacts([
+            ...contacts,
+            {
+                name: contactName,
+                phone: contactNumber,
+                email: contactEmail,
+            },
+        ]);
     };
 
     const addAppointment = (
@@ -37,14 +37,14 @@ function App() {
         appointmentDate,
         appointmentTime
     ) => {
-        const appointmentObj = {
-            name: appointmentName,
-            date: appointmentDate,
-            time: appointmentTime,
-        };
-        setAppointments((prev) => {
-            return [...prev, appointmentObj];
-        });
+        setAppointments([
+            ...appointments,
+            {
+                name: appointmentName,
+                date: appointmentDate,
+                time: appointmentTime,
+            },
+        ]);
     };
 
     const router = createBrowserRouter(
@@ -56,13 +56,20 @@ function App() {
                 />
                 <Route
                     path={ROUTES.CONTACTS}
-                    element={<ContactsPage contacts={contacts} 
-                    addContact={addContact}/> /* Add props to ContactsPage */}
+                    element={
+                        <ContactsPage
+                            contacts={contacts}
+                            addContact={addContact}
+                        /> /* Add props to ContactsPage */
+                    }
                 />
                 <Route
                     path={ROUTES.APPOINTMENTS}
                     element={
-                        <AppointmentsPage appointments={appointments} addAppointment={addAppointment}/> /* Add props to AppointmentsPage */
+                        <AppointmentsPage
+                            appointments={appointments}
+                            addAppointment={addAppointment}
+                        /> /* Add props to AppointmentsPage */
                     }
                 />
             </Route>

@@ -17,12 +17,13 @@ export const ContactsPage = (props) => {
 
     useEffect(
         (name) => {
-            contacts.forEach((contactObject) => {
-                if (contactObject.name === name) {
+            Object.values(contacts).map((contact, index) => {
+                if (contact[0] === name) {
                     setNameDuplicate(true);
                 }
             });
         },
+
         [contacts, name]
     );
 
@@ -32,7 +33,7 @@ export const ContactsPage = (props) => {
     Add contact info and clear data
     if the contact name is not a duplicate
     */
-        if (nameDuplicate === false) {
+        if (nameDuplicate !== false) {
             addContact(name, number, email);
             setName("");
             setNumber("");
@@ -62,7 +63,7 @@ export const ContactsPage = (props) => {
             <hr />
             <section>
                 <h2>Contacts</h2>
-                <TileList contacts={contacts} />
+                <TileList object={contacts} />
             </section>
         </div>
     );
