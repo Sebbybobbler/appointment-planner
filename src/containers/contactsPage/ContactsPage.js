@@ -51,21 +51,18 @@ export const ContactsPage = (props) => {
                 <h2>Add Contact</h2>
                 <ContactForm
                     name={name}
-                    setname={setName}
-                    number={number}
-                    setnumber={setNumber}
+                    setName={setName}
+                    phone={number}
+                    setPhone={setNumber}
                     email={email}
                     setEmail={setEmail}
-                    nameduplicate={nameDuplicate}
                     handleSubmit={handleSubmit}
                 />
             </section>
             <hr />
             <section>
                 <h2>Contacts</h2>
-                <TileList 
-                contacts={contacts}
-                />
+                <TileList contacts={contacts} />
             </section>
         </div>
     );
