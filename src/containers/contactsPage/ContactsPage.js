@@ -21,6 +21,7 @@ export const ContactsPage = (props) => {
         if (contact[0] === name) {
           return setNameDuplicate(true);
         }
+        return null;
       });
     },
 
