@@ -1,1 +1,1 @@
-A basic appointment planner. Utilising React 
+A basic appointment planner. Utilising Reacts "useState" hook. 
